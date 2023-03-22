@@ -7,6 +7,7 @@ urlDateTimeFormat = "yyyydddhhmm"
 # Importing the required modules
 import requests # For downloading images from URLs
 import datetime # For getting the current year and Julian day
+from datetime import timedelta
 import os # For deleting files and setting wallpaper
 import ctypes # For setting wallpaper
 from ctypes import wintypes
@@ -19,8 +20,14 @@ MAX_FILES = 10 # The maximum number of files to keep in the folder
 
 # Getting the current year and Julian day
 now = datetime.datetime.utcnow() # Getting the current time in UTC
-year = now.strftime("%Y") # Formatting the year as four digits
-day = now.strftime("%j") # Formatting the Julian day as three digits
+
+# If the current UTC time is before 1700, then default to the previous day's image...
+if now.hour < 17:
+    year = (now - timedelta(days = 1)).strftime("%Y") # Formatting the year as four digits, less 1 day since the image for the current UTC day does not yet exist
+    day = (now - timedelta(days = 1)).strftime("%j") # Formatting the Julian day as three digits, less 1 day since the image for the current UTC day does not yet exist
+else:
+    year = now.strftime("%Y") # Formatting the year as four digits
+    day = now.strftime("%j") # Formatting the Julian day as three digits
 
 # Replacing the placeholders in the URL and file name templates with actual values
 url = URL_TEMPLATE.format(year=year, day=day) # Using string formatting to replace {year} and {day} with actual values
