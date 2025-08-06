@@ -7,7 +7,7 @@ def randomize(it):
             it = it[:i] + it[i].upper() + it[i+1:]
     return it
 
-toRand = "Who here is excited for 20 minutes of civ 7 gameplay at 4:30 est"
+toRand = "actually for adult, the average is 100"
 
 it = randomize(toRand)
 print(it)
