@@ -13,7 +13,7 @@ import ctypes # For setting wallpaper
 from ctypes import wintypes
 
 # Defining some constants
-URL_TEMPLATE = "https://cdn.star.nesdis.noaa.gov/GOES16/ABI/FD/GEOCOLOR/{year}{day}1700_GOES16-ABI-FD-GEOCOLOR-21696x21696.jpg" # The URL template with placeholders for year and day
+URL_TEMPLATE = "https://cdn.star.nesdis.noaa.gov/GOES16/ABI/FD/GEOCOLOR/{year}{day}1700_GOES19-ABI-FD-GEOCOLOR-21696x21696.jpg" # The URL template with placeholders for year and day
 FOLDER = "C:\\Users\\Eric\\OneDrive\\Pictures\\Wallpapers\\GOES-East" # The predetermined folder where images are saved
 FILE_TEMPLATE = "GOES-East_Full_Disk_Geocolor_{year}{day}1700.jpg" # The file name template with placeholders for year and day
 MAX_FILES = 10 # The maximum number of files to keep in the folder
